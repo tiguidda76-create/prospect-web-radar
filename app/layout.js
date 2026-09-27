@@ -2,8 +2,8 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export const metadata = {
-  title: "WebRadar AI — Prospection Venues 5★ & Générateur Web 0€",
-  description: "Détection des établissements 5 étoiles sans site web sur Google Maps, génération automatisée par agents IA et déploiement gratuit sur GitHub Pages / Vercel.",
+  title: "Radar Vitrine — Prospection Venues 5★ & Sites IA 0€",
+  description: "Détection des établissements 5 étoiles sans site web sur Google Maps et génération instantanée de vitrines officielles.",
 };
 
 export default function RootLayout({ children }) {

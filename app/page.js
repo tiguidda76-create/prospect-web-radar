@@ -210,7 +210,7 @@ export default function ProspectRadarDashboard() {
               className="font-display"
               style={{ margin: 0, fontSize: 26, fontWeight: 800, letterSpacing: "-0.02em" }}
             >
-              WebRadar <span style={{ color: "#f59e0b" }}>AI</span>
+              Radar <span style={{ color: "#f59e0b" }}>Vitrine</span>
             </h1>
             <span
               style={{
@@ -223,11 +223,11 @@ export default function ProspectRadarDashboard() {
                 fontWeight: 600,
               }}
             >
-              Principe 0€ Frais
+              0€ Frais
             </span>
           </div>
           <p style={{ margin: "6px 0 0 0", color: "#94a3b8", fontSize: 14 }}>
-            Radar de prospection Google Maps (5★ sans site web) • Générateur IA de sites • Hébergement gratuit GitHub Pages
+            Radar de prospection Google Maps (5★ sans site web) • Générateur IA • Déploiement instantané
           </p>
         </div>
 
@@ -804,7 +804,7 @@ export default function ProspectRadarDashboard() {
             {/* Actions modale */}
             <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
               <a
-                href={`/api/preview/${previewProspect.id}`}
+                href={`/v/${previewProspect.site_slug || previewProspect.id}`}
                 target="_blank"
                 rel="noreferrer"
                 style={{
@@ -863,7 +863,7 @@ export default function ProspectRadarDashboard() {
               }}
             >
               <iframe
-                src={`/api/preview/${previewProspect.id}`}
+                src={`/v/${previewProspect.site_slug || previewProspect.id}`}
                 title="Aperçu Site Prospect"
                 style={{ width: "100%", height: "100%", border: "none" }}
               />
