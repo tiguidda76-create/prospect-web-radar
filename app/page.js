@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 
+import { AGENCY_PROFILE, PRICING_SERVICES } from "@/lib/billingAndServices.js";
+
 export default function ProspectRadarDashboard() {
   const [prospects, setProspects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -19,6 +21,10 @@ export default function ProspectRadarDashboard() {
   const [previewProspect, setPreviewProspect] = useState(null);
   const [previewDevice, setPreviewDevice] = useState("desktop"); // 'desktop' | 'mobile'
   const [pitchProspect, setPitchProspect] = useState(null);
+  const [showPricingModal, setShowPricingModal] = useState(false);
+  const [revisionProspect, setRevisionProspect] = useState(null);
+  const [revisionPrompt, setRevisionPrompt] = useState("");
+  const [modifying, setModifying] = useState(false);
   const [notification, setNotification] = useState(null);
 
   // Charger les prospects
@@ -116,6 +122,37 @@ export default function ProspectRadarDashboard() {
       showNotification("Erreur lors du déploiement", "error");
     } finally {
       setDeployingId(null);
+    }
+  };
+
+  // Appliquer les modifications demandées par le client via l'IA
+  const handleApplyRevision = async () => {
+    if (!revisionProspect || !revisionPrompt.trim()) return;
+    try {
+      setModifying(true);
+      const res = await fetch("/api/modify-site", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id: revisionProspect.id,
+          instruction: revisionPrompt,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setProspects((prev) =>
+          prev.map((p) => (p.id === revisionProspect.id ? data.prospect : p))
+        );
+        showNotification("Modifications appliquées au site avec succès !");
+        setRevisionProspect(null);
+        setRevisionPrompt("");
+      } else {
+        showNotification("Erreur lors de la modification : " + data.error, "error");
+      }
+    } catch (e) {
+      showNotification("Erreur de communication avec l'agent IA", "error");
+    } finally {
+      setModifying(false);
     }
   };
 
@@ -232,6 +269,25 @@ export default function ProspectRadarDashboard() {
         </div>
 
         <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+          <button
+            onClick={() => setShowPricingModal(true)}
+            style={{
+              background: "linear-gradient(135deg, #10b981, #059669)",
+              color: "#fff",
+              border: "none",
+              padding: "10px 16px",
+              borderRadius: 10,
+              cursor: "pointer",
+              fontSize: 13,
+              fontWeight: 700,
+              display: "flex",
+              alignItems: "center",
+              gap: 6,
+              boxShadow: "0 4px 12px rgba(16, 185, 129, 0.25)",
+            }}
+          >
+            <span>💳</span> Tarifs & Services
+          </button>
           <button
             onClick={loadProspects}
             style={{
@@ -674,6 +730,32 @@ export default function ProspectRadarDashboard() {
                             </button>
                           )}
 
+                          {/* Bouton Modifier avec l'IA (Demandes clients) */}
+                          {p.site_html && (
+                            <button
+                              onClick={() => {
+                                setRevisionProspect(p);
+                                setRevisionPrompt("");
+                              }}
+                              title="Modifier le site selon la demande du client via l'Agent IA"
+                              style={{
+                                background: "#1e293b",
+                                color: "#f59e0b",
+                                border: "1px solid rgba(245, 158, 11, 0.4)",
+                                padding: "7px 12px",
+                                borderRadius: 8,
+                                fontSize: 12,
+                                fontWeight: 600,
+                                cursor: "pointer",
+                                display: "flex",
+                                alignItems: "center",
+                                gap: 4,
+                              }}
+                            >
+                              <span>🪄 Modifier IA</span>
+                            </button>
+                          )}
+
                           {/* Bouton Déployer (GitHub Pages 0€) */}
                           {p.site_html && (
                             <button
@@ -1006,6 +1088,269 @@ export default function ProspectRadarDashboard() {
                   </a>
                 );
               })()}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* MODALE DE RÉVISION IA (DEMANDES MODIFICATION DU CLIENT) */}
+      {revisionProspect && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            background: "rgba(0, 0, 0, 0.8)",
+            backdropFilter: "blur(6px)",
+            zIndex: 9000,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: 20,
+          }}
+        >
+          <div
+            style={{
+              background: "#0f172a",
+              border: "1px solid #334155",
+              borderRadius: 18,
+              width: "100%",
+              maxWidth: 620,
+              padding: 24,
+              boxShadow: "0 20px 40px rgba(0,0,0,0.6)",
+            }}
+          >
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
+              <div>
+                <h3 style={{ margin: 0, fontSize: 18, fontWeight: 700, color: "#fff", display: "flex", alignItems: "center", gap: 8 }}>
+                  <span>🪄</span> Modifier le site avec l'Agent IA
+                </h3>
+                <p style={{ margin: "4px 0 0 0", fontSize: 13, color: "#94a3b8" }}>
+                  Établissement : <strong style={{ color: "#fff" }}>{revisionProspect.name}</strong>
+                </p>
+              </div>
+              <button
+                onClick={() => setRevisionProspect(null)}
+                style={{
+                  background: "#1e293b",
+                  color: "#fff",
+                  border: "none",
+                  width: 28,
+                  height: 28,
+                  borderRadius: "50%",
+                  cursor: "pointer",
+                }}
+              >
+                ✕
+              </button>
+            </div>
+
+            <p style={{ fontSize: 13, color: "#cbd5e1", lineHeight: 1.5, marginBottom: 12 }}>
+              Collez simplement le message WhatsApp du client ou vos instructions. L'agent IA appliquera les modifications chirurgicalement dans le code HTML tout en préservant le design :
+            </p>
+
+            <textarea
+              rows={4}
+              value={revisionPrompt}
+              onChange={(e) => setRevisionPrompt(e.target.value)}
+              placeholder="Ex: Change le numéro de téléphone en +212 6 32 15 54 30, ajoute 'Terrasse panoramique sur l'Atlas' dans les points forts et remplace le prix du menu par 180 MAD."
+              style={{
+                width: "100%",
+                background: "#0b141a",
+                border: "1px solid #334155",
+                borderRadius: 12,
+                padding: "12px 14px",
+                color: "#fff",
+                fontSize: 14,
+                fontFamily: "inherit",
+                resize: "vertical",
+                marginBottom: 20,
+                outline: "none",
+              }}
+            />
+
+            <div style={{ display: "flex", gap: 12, justifyContent: "flex-end" }}>
+              <button
+                onClick={() => setRevisionProspect(null)}
+                style={{
+                  background: "#1e293b",
+                  color: "#94a3b8",
+                  border: "1px solid #334155",
+                  padding: "10px 16px",
+                  borderRadius: 10,
+                  fontSize: 13,
+                  fontWeight: 600,
+                  cursor: "pointer",
+                }}
+              >
+                Annuler
+              </button>
+              <button
+                onClick={handleApplyRevision}
+                disabled={modifying || !revisionPrompt.trim()}
+                style={{
+                  background: modifying ? "#475569" : "linear-gradient(135deg, #f59e0b, #d97706)",
+                  color: "#000",
+                  border: "none",
+                  padding: "10px 20px",
+                  borderRadius: 10,
+                  fontSize: 13,
+                  fontWeight: 700,
+                  cursor: modifying || !revisionPrompt.trim() ? "not-allowed" : "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 8,
+                }}
+              >
+                <span>{modifying ? "⏳ Modification en cours..." : "⚡ Appliquer les modifications"}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* MODALE TARIFS & FACTURATION (SYNCHRONISÉ CABINET HASSAN TIGUIDDA) */}
+      {showPricingModal && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            background: "rgba(0, 0, 0, 0.85)",
+            backdropFilter: "blur(8px)",
+            zIndex: 9000,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: 20,
+          }}
+        >
+          <div
+            style={{
+              background: "#0f172a",
+              border: "1px solid #334155",
+              borderRadius: 20,
+              width: "100%",
+              maxWidth: 960,
+              maxHeight: "90vh",
+              overflowY: "auto",
+              padding: 28,
+              boxShadow: "0 25px 50px rgba(0,0,0,0.7)",
+            }}
+          >
+            {/* Header Tarifs */}
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 24 }}>
+              <div>
+                <div style={{ display: "inline-block", background: "rgba(16, 185, 129, 0.15)", color: "#10b981", padding: "4px 12px", borderRadius: 12, fontSize: 12, fontWeight: 700, marginBottom: 8 }}>
+                  CATALOGUE DES OFFRES & FACTURATION
+                </div>
+                <h2 style={{ margin: 0, fontSize: 24, fontWeight: 800, color: "#fff" }}>
+                  Services & Grille Tarifaire Radar Vitrine
+                </h2>
+                <p style={{ margin: "4px 0 0 0", fontSize: 13, color: "#94a3b8" }}>
+                  Édité par <strong style={{ color: "#fff" }}>{AGENCY_PROFILE.cabinet}</strong> • WhatsApp : <a href={AGENCY_PROFILE.whatsappUrl} target="_blank" rel="noreferrer" style={{ color: "#34d399", textDecoration: "none" }}>{AGENCY_PROFILE.phone}</a>
+                </p>
+              </div>
+              <button
+                onClick={() => setShowPricingModal(false)}
+                style={{
+                  background: "#1e293b",
+                  color: "#fff",
+                  border: "none",
+                  width: 32,
+                  height: 32,
+                  borderRadius: "50%",
+                  cursor: "pointer",
+                  fontSize: 16,
+                }}
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Grille des Offres */}
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 16, marginBottom: 24 }}>
+              {PRICING_SERVICES.map((plan) => (
+                <div
+                  key={plan.id}
+                  style={{
+                    background: plan.isPopular
+                      ? "linear-gradient(180deg, rgba(16, 185, 129, 0.12), rgba(15, 23, 42, 0.95))"
+                      : "#1e293b",
+                    border: plan.isPopular ? "2px solid #10b981" : "1px solid #334155",
+                    borderRadius: 16,
+                    padding: 22,
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    position: "relative",
+                  }}
+                >
+                  {plan.badge && (
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: -10,
+                        right: 14,
+                        background: plan.isPopular ? "#10b981" : "#f59e0b",
+                        color: "#000",
+                        padding: "2px 8px",
+                        borderRadius: 10,
+                        fontSize: 10,
+                        fontWeight: 800,
+                      }}
+                    >
+                      {plan.badge}
+                    </div>
+                  )}
+
+                  <div>
+                    <h4 style={{ margin: "0 0 4px 0", fontSize: 16, fontWeight: 700, color: "#fff" }}>
+                      {plan.title}
+                    </h4>
+                    <p style={{ margin: "0 0 12px 0", fontSize: 12, color: "#94a3b8" }}>
+                      {plan.subtitle}
+                    </p>
+
+                    <div style={{ marginBottom: 16 }}>
+                      <span style={{ fontSize: 28, fontWeight: 900, color: "#fff" }}>{plan.price}</span>
+                      <span style={{ fontSize: 14, color: "#cbd5e1" }}> {plan.currency}</span>
+                      <div style={{ fontSize: 11, color: "#64748b" }}>{plan.period}</div>
+                    </div>
+
+                    <ul style={{ listStyle: "none", padding: 0, margin: "0 0 20px 0", fontSize: 12, color: "#cbd5e1", display: "flex", flexDirection: "column", gap: 8 }}>
+                      {plan.features.map((feat, idx) => (
+                        <li key={idx} style={{ display: "flex", gap: 6, alignItems: "flex-start" }}>
+                          <span style={{ color: "#10b981", fontWeight: 700 }}>✓</span>
+                          <span>{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <a
+                    href={`${AGENCY_PROFILE.whatsappUrl}?text=${encodeURIComponent(plan.whatsappCta)}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      display: "block",
+                      textAlign: "center",
+                      background: plan.isPopular ? "#10b981" : "#334155",
+                      color: plan.isPopular ? "#000" : "#fff",
+                      padding: "10px",
+                      borderRadius: 10,
+                      fontWeight: 700,
+                      fontSize: 12,
+                      textDecoration: "none",
+                    }}
+                  >
+                    Activer via WhatsApp 💬
+                  </a>
+                </div>
+              ))}
+            </div>
+
+            {/* Note sur les modifications clients */}
+            <div style={{ background: "rgba(245, 158, 11, 0.1)", border: "1px solid rgba(245, 158, 11, 0.25)", borderRadius: 12, padding: "14px 18px", fontSize: 13, color: "#fcd34d" }}>
+              <strong>💡 Gestion des modifications clients :</strong> Vous offrez 1 révision gratuite lors de la découverte de la maquette (pour déclencher la confiance). Ensuite, toute mise à jour continue (changement de carte, photos, horaires) est incluse dans la <strong>Formule Sérénité à 390 MAD/mois</strong> ou le <strong>Pack Combo à 1 290 MAD/mois</strong> !
             </div>
           </div>
         </div>
