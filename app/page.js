@@ -1087,6 +1087,7 @@ export default function ProspectRadarDashboard() {
                 overflowY: "auto",
                 marginBottom: 20,
               }}
+            >
               {(() => {
                 const publicBase = "https://radar-vitrines.vercel.app";
                 let text = pitchProspect.pitch_message || `Bonjour l'équipe de *${pitchProspect.name}* 👋\n\nFélicitations pour votre note remarquable de *${pitchProspect.rating}⭐* sur Google Maps (${pitchProspect.review_count} avis clients vérifiés) !\n\nEn consultant votre fiche à ${pitchProspect.city}, nous avons remarqué que vous n'avez pas encore de site officiel.\n\nNous vous avons préparé un aperçu interactif de votre futur site officiel :\n👉 ${publicBase}/v/${pitchProspect.site_slug || pitchProspect.id}\n\nVos avis Google et votre bouton WhatsApp y sont déjà intégrés. Dites-nous ce que vous en pensez !\nBien cordialement,\nL'équipe Radar Vitrine`;
@@ -1100,9 +1101,11 @@ export default function ProspectRadarDashboard() {
             <div style={{ display: "flex", gap: 12, justifyContent: "flex-end", flexWrap: "wrap" }}>
               <button
                 onClick={() => {
-                  const text =
+                  const publicBase = "https://radar-vitrines.vercel.app";
+                  let text =
                     pitchProspect.pitch_message ||
-                    `Bonjour l'équipe de ${pitchProspect.name}...`;
+                    `Bonjour l'équipe de *${pitchProspect.name}* 👋\n\nFélicitations pour votre note remarquable de *${pitchProspect.rating}⭐* sur Google Maps (${pitchProspect.review_count} avis clients vérifiés) !\n\nEn consultant votre fiche à ${pitchProspect.city}, nous avons remarqué que vous n'avez pas encore de site officiel.\n\nNous vous avons préparé un aperçu interactif de votre futur site officiel :\n👉 ${publicBase}/v/${pitchProspect.site_slug || pitchProspect.id}\n\nVos avis Google et votre bouton WhatsApp y sont déjà intégrés. Dites-nous ce que vous en pensez !\nBien cordialement,\nL'équipe Radar Vitrine`;
+                  text = text.replace(/http:\/\/localhost:[0-9]+/g, publicBase);
                   navigator.clipboard.writeText(text);
                   showNotification("Message copié dans le presse-papier !");
                 }}
@@ -1126,10 +1129,10 @@ export default function ProspectRadarDashboard() {
                 const waNum = phone.startsWith("+")
                   ? phone.replace("+", "")
                   : `212${phone.replace(/^0/, "")}`;
-                const encoded = encodeURIComponent(
-                  pitchProspect.pitch_message ||
-                    `Bonjour l'équipe de *${pitchProspect.name}* 👋...`
-                );
+                const publicBase = "https://radar-vitrines.vercel.app";
+                let rawMsg = pitchProspect.pitch_message || `Bonjour l'équipe de *${pitchProspect.name}* 👋\n\nFélicitations pour votre note remarquable de *${pitchProspect.rating}⭐* sur Google Maps (${pitchProspect.review_count} avis clients vérifiés) !\n\nEn consultant votre fiche à ${pitchProspect.city}, nous avons remarqué que vous n'avez pas encore de site officiel.\n\nNous vous avons préparé un aperçu interactif de votre futur site officiel :\n👉 ${publicBase}/v/${pitchProspect.site_slug || pitchProspect.id}\n\nVos avis Google et votre bouton WhatsApp y sont déjà intégrés. Dites-nous ce que vous en pensez !\nBien cordialement,\nL'équipe Radar Vitrine`;
+                rawMsg = rawMsg.replace(/http:\/\/localhost:[0-9]+/g, publicBase);
+                const encoded = encodeURIComponent(rawMsg);
                 const waUrl = `https://wa.me/${waNum || ""}?text=${encoded}`;
 
                 return (
