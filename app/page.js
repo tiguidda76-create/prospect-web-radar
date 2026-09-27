@@ -13,9 +13,11 @@ export default function ProspectRadarDashboard() {
 
   // Filtres de recherche
   const [city, setCity] = useState("Marrakech");
-  const [category, setCategory] = useState("Restaurant");
+  const [category, setCategory] = useState("all");
   const [minRating, setMinRating] = useState(4.7);
   const [statusFilter, setStatusFilter] = useState("all");
+  const [tableSearch, setTableSearch] = useState("");
+  const [tableCategoryFilter, setTableCategoryFilter] = useState("all");
 
   // Modales
   const [previewProspect, setPreviewProspect] = useState(null);
@@ -178,8 +180,16 @@ export default function ProspectRadarDashboard() {
 
   // Filtrage des prospects affichés
   const filteredProspects = prospects.filter((p) => {
-    if (statusFilter === "all") return true;
-    return p.status === statusFilter;
+    if (statusFilter !== "all" && p.status !== statusFilter) return false;
+    if (tableCategoryFilter !== "all" && (p.category || "").toLowerCase() !== tableCategoryFilter.toLowerCase()) return false;
+    if (tableSearch.trim()) {
+      const q = tableSearch.toLowerCase();
+      const matchName = (p.name || "").toLowerCase().includes(q);
+      const matchCity = (p.city || "").toLowerCase().includes(q);
+      const matchCat = (p.category || "").toLowerCase().includes(q);
+      if (!matchName && !matchCity && !matchCat) return false;
+    }
+    return true;
   });
 
   // Calcul des métriques clés
@@ -432,7 +442,7 @@ export default function ProspectRadarDashboard() {
             </select>
           </div>
 
-          <div style={{ minWidth: 180, flex: "1 1 200px" }}>
+          <div style={{ minWidth: 200, flex: "1 1 220px" }}>
             <label style={{ display: "block", fontSize: 12, fontWeight: 600, color: "#94a3b8", marginBottom: 6 }}>
               Catégorie Métier
             </label>
@@ -450,12 +460,15 @@ export default function ProspectRadarDashboard() {
                 outline: "none",
               }}
             >
+              <option value="all">🌐 Tous les métiers (Recherche globale)</option>
               <option value="Restaurant">Restaurant / Bistro</option>
               <option value="Riad">Riad & Maison d'hôtes</option>
               <option value="Salon de beauté">Salon de beauté / Spa / Hammam</option>
               <option value="Artisan">Artisan / Maroquinerie / Céramique</option>
               <option value="Dentiste">Dentiste / Cabinet Médical</option>
               <option value="Café">Café & Brunch</option>
+              <option value="Hôtel">Hôtel & Hébergement</option>
+              <option value="Commerce">Commerce & Boutique</option>
             </select>
           </div>
 
@@ -500,46 +513,99 @@ export default function ProspectRadarDashboard() {
         </button>
       </section>
 
-      {/* FILTER TABS */}
-      <div style={{ display: "flex", gap: 10, marginBottom: 20, overflowX: "auto", paddingBottom: 6 }}>
-        {[
-          { key: "all", label: "Tous les prospects", count: stats.total },
-          { key: "scouted", label: "À Traiter", count: prospects.filter((p) => p.status === "scouted").length },
-          { key: "site_generated", label: "Sites Générés", count: prospects.filter((p) => p.status === "site_generated").length },
-          { key: "deployed", label: "Déployés Live", count: stats.deployed },
-          { key: "pitched", label: "Contactés", count: stats.pitched },
-          { key: "converted", label: "Convertis 🎉", count: stats.converted },
-        ].map((tab) => (
-          <button
-            key={tab.key}
-            onClick={() => setStatusFilter(tab.key)}
-            style={{
-              background: statusFilter === tab.key ? "#1e293b" : "transparent",
-              color: statusFilter === tab.key ? "#fff" : "#94a3b8",
-              border: statusFilter === tab.key ? "1px solid #334155" : "1px solid transparent",
-              borderRadius: 8,
-              padding: "8px 14px",
-              fontSize: 13,
-              fontWeight: 600,
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              gap: 8,
-            }}
-          >
-            <span>{tab.label}</span>
-            <span
+      {/* FILTER TABS & QUICK SEARCH */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          flexWrap: "wrap",
+          gap: 14,
+          marginBottom: 20,
+        }}
+      >
+        <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 4, flex: "1 1 500px" }}>
+          {[
+            { key: "all", label: "Tous les prospects", count: stats.total },
+            { key: "scouted", label: "À Traiter", count: prospects.filter((p) => p.status === "scouted").length },
+            { key: "site_generated", label: "Sites Générés", count: prospects.filter((p) => p.status === "site_generated").length },
+            { key: "deployed", label: "Déployés Live", count: stats.deployed },
+            { key: "pitched", label: "Contactés", count: stats.pitched },
+            { key: "converted", label: "Convertis 🎉", count: stats.converted },
+          ].map((tab) => (
+            <button
+              key={tab.key}
+              onClick={() => setStatusFilter(tab.key)}
               style={{
-                background: statusFilter === tab.key ? "#334155" : "rgba(255,255,255,0.06)",
-                padding: "2px 7px",
-                borderRadius: 10,
-                fontSize: 11,
+                background: statusFilter === tab.key ? "#1e293b" : "transparent",
+                color: statusFilter === tab.key ? "#fff" : "#94a3b8",
+                border: statusFilter === tab.key ? "1px solid #334155" : "1px solid transparent",
+                borderRadius: 8,
+                padding: "8px 14px",
+                fontSize: 13,
+                fontWeight: 600,
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                gap: 8,
+                whiteSpace: "nowrap",
               }}
             >
-              {tab.count}
-            </span>
-          </button>
-        ))}
+              <span>{tab.label}</span>
+              <span
+                style={{
+                  background: statusFilter === tab.key ? "#334155" : "rgba(255,255,255,0.06)",
+                  padding: "2px 7px",
+                  borderRadius: 10,
+                  fontSize: 11,
+                }}
+              >
+                {tab.count}
+              </span>
+            </button>
+          ))}
+        </div>
+
+        {/* Quick Search & Filter in Table */}
+        <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
+          <input
+            type="text"
+            placeholder="🔍 Filtrer nom, ville..."
+            value={tableSearch}
+            onChange={(e) => setTableSearch(e.target.value)}
+            style={{
+              background: "#1e293b",
+              border: "1px solid #334155",
+              borderRadius: 8,
+              color: "#fff",
+              padding: "7px 12px",
+              fontSize: 13,
+              outline: "none",
+              width: 170,
+            }}
+          />
+          <select
+            value={tableCategoryFilter}
+            onChange={(e) => setTableCategoryFilter(e.target.value)}
+            style={{
+              background: "#1e293b",
+              border: "1px solid #334155",
+              borderRadius: 8,
+              color: "#fff",
+              padding: "7px 12px",
+              fontSize: 13,
+              outline: "none",
+            }}
+          >
+            <option value="all">Tous les métiers</option>
+            <option value="Riad">Riad</option>
+            <option value="Restaurant">Restaurant</option>
+            <option value="Salon de beauté">Salon / Spa</option>
+            <option value="Artisan">Artisan</option>
+            <option value="Dentiste">Dentiste</option>
+            <option value="Café">Café</option>
+          </select>
+        </div>
       </div>
 
       {/* PROSPECTS TABLE */}

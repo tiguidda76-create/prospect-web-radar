@@ -122,5 +122,509 @@
     "id": "local-1790513027387-wsivf",
     "created_at": "2026-09-27T12:43:47.387Z",
     "updated_at": "2026-09-27T12:43:47.387Z"
+  },
+  {
+    "name": "Cafe Restaurant Dar L'hssira",
+    "category": "Riad",
+    "city": "Marrakech",
+    "country": "Maroc",
+    "google_place_id": "ChIJqarx3LXvrw0RtN4cFj1aTJ0",
+    "rating": 4.7,
+    "review_count": 3381,
+    "phone": "+212 6 00 75 68 45",
+    "address": "13, Marrakech 40040, Maroc",
+    "google_maps_url": "https://maps.google.com/?cid=11334533580595191476&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "status": "scouted",
+    "top_reviews": [
+      {
+        "author": "Calypso Gigante",
+        "rating": 5,
+        "text": "mon restaurant préféré du séjour !\nLe couscous royal était exceptionnel je vous recommande cette adresse pour déguster un couscous à marrakech (surtout qu’il coute moins de 10€).\nNous avions réservé une tanjia et c’était également excellent.\nLa terrasses est équipée de brumisateurs ce qui rend le moment agréable même en été.\nAllez vraiment manger dans ce restaurant si vous êtes de passage à marrakech et que souhaitez goûter à de la nourriture traditionnelle, tout était très bon, et pas cher !",
+        "relativeDate": "il y a 2 mois"
+      },
+      {
+        "author": "Vincent Garagnon",
+        "rating": 5,
+        "text": "Dar l’Hssira, toujours au top !\n\nUn restaurant que je recommande sans hésiter. La qualité est constante à chaque visite. Je vous conseille particulièrement le houmous, absolument délicieux et préparé avec soin.\n\nUn grand merci à Bachir pour son service rapide et efficace, toujours agréable.\n\nPetit bonus : si vous aimez cette adresse, n’hésitez pas à essayer également La Terrasse Dar l’Hssira, tenue par la même maison. Même qualité garantie !",
+        "relativeDate": "il y a 3 semaines"
+      },
+      {
+        "author": "Mo",
+        "rating": 5,
+        "text": "Tout était super, la décoration, l'ambiance calme malgré le monde, le petit vent frais le soir sur la terrasse, la cuisine avec des produits frais et de qualité, c'était un régal. Le personnel, accueillant et réactif. Nous avons passé un agréable moment en famille, tout le monde était vraiment satisfait de notre passage. À faire et à refaire.",
+        "relativeDate": "il y a 2 mois"
+      },
+      {
+        "author": "christophe masson",
+        "rating": 5,
+        "text": "J’ai passé un excellent moment dans ce restaurant marocain. La cuisine est authentique, généreuse et pleine de saveurs, avec des plats parfaitement préparés et très bien présentés. Le tout à un prix tout à fait raisonnable, ce qui rend l’expérience encore plus appréciable.\nLa salle, petite et très cosy, crée une ambiance chaleureuse et conviviale où l’on se sent immédiatement à l’aise. Le service est agréable et attentionné, ce qui complète parfaitement le repas.\nJe recommande vivement cette adresse à tous les amateurs de cuisine marocaine et j’y reviendrai avec grand plaisir.",
+        "relativeDate": "il y a 4 mois"
+      }
+    ],
+    "id": "local-1790515950010-68ah4",
+    "created_at": "2026-09-27T13:32:30.010Z",
+    "updated_at": "2026-09-27T13:32:30.010Z"
+  },
+  {
+    "name": "Hotel & spa Dar Sara",
+    "category": "Riad",
+    "city": "Marrakech",
+    "country": "Maroc",
+    "google_place_id": "ChIJ3WsFEADvrw0R1YCyZVHPk2k",
+    "rating": 4.7,
+    "review_count": 41,
+    "phone": "",
+    "address": "120 Arset Aouzal Rd, Marrakesh 40000, Maroc",
+    "google_maps_url": "https://maps.google.com/?cid=7607652144064397525&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "status": "scouted",
+    "top_reviews": [
+      {
+        "author": "Ferletic Nathalie",
+        "rating": 5,
+        "text": "Un véritable cocon au cœur de la Médina, une invitation à la détente. Le Riad est d’une propreté irréprochable, bien entretenu et décoré avec goût, les petits déjeuners sont excellents, le personnel est aux petits soins.",
+        "relativeDate": "il y a 4 mois"
+      },
+      {
+        "author": "Charlotte Kistler",
+        "rating": 5,
+        "text": "Un personnel très chaleureux, accueillant et disponible (Noura, Omar,…) Le petit déjeuner changeait légèrement tous les jours nous avons apprécié la variété. Riad très propre. Le clou du spectacle c’est la magnifique terrasse au coucher du soleil qui offre une super vue sur la Koutoubia qui s’illumine. Ce Riad est légèrement en retrait de toute l’agitation, ce qui en fait un endroit très calme.",
+        "relativeDate": "il y a 10 mois"
+      },
+      {
+        "author": "Fabienne Keser",
+        "rating": 3,
+        "text": "Riad bien situé dans un endroit calme de la médina. Petit déjeuner copieux mais pas varié. Très bon service de nettoyage. Personnel accueillant. Mention spéciale pour Youness qui est aux petits soins pour les clients. Attention aux personnes n’aimant pas les matelas durs (problèmes de dos)… le personnel a rajouté un sur matelas à ma demande. Merci pour cette belle découverte du Maroc",
+        "relativeDate": "il y a un an"
+      },
+      {
+        "author": "lola gaq",
+        "rating": 5,
+        "text": "Tout était parfait !\n\nLe Riad sent délicieusement bon et il est très propre.\n\nLe personnel est au petit soin :\nTrès accueillant, répond à toutes nos questions, nous demande si nous avons besoin de quoi que ce soit, imprime nos billets d’avion …\n\nLe petit déjeuner est excellent et varié : yaourts faits maison, pains traditionnels, omelette …\nJe recommande vivement !",
+        "relativeDate": "il y a 2 ans"
+      }
+    ],
+    "id": "local-1790515950010-ph7c7",
+    "created_at": "2026-09-27T13:32:30.010Z",
+    "updated_at": "2026-09-27T13:32:30.010Z"
+  },
+  {
+    "name": "souk_artisanat",
+    "category": "Artisan",
+    "city": "Marrakech",
+    "country": "Maroc",
+    "google_place_id": "ChIJ_-g4jIDprw0Rv9lLap1Al8o",
+    "rating": 5,
+    "review_count": 18,
+    "phone": "+212 6 01 35 94 15",
+    "address": "El fakhara souk gassaba route Essaouira, JWH6+52X, N2, Marrakech 40150, Maroc",
+    "google_maps_url": "https://maps.google.com/?cid=14598207761982151103&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "status": "scouted",
+    "top_reviews": [
+      {
+        "author": "Manon Bonmartin",
+        "rating": 5,
+        "text": "Ravie de ma commande ! Tout est arrivé bien emballé. Très belle qualité ! Bonne communication avec l'équipe.",
+        "relativeDate": "il y a 12 mois"
+      },
+      {
+        "author": "Jeremy DOYA",
+        "rating": 5,
+        "text": "J’ai commandé plusieurs bancs et chaises , fabrication et livraison rapide et très bonne qualité ✅",
+        "relativeDate": "il y a 4 mois"
+      },
+      {
+        "author": "Gervasoni Laura",
+        "rating": 5,
+        "text": "Ravie de ma commande, livrée avant le temps indiqué, livraison soignée et communication parfaite",
+        "relativeDate": "il y a 6 mois"
+      },
+      {
+        "author": "Cecile Turcan",
+        "rating": 5,
+        "text": "Parfait !\nUn grand merci pour votre professionnalisme et pour la grande qualité de vos lustres. Ils sont arrivés très bien emballés, dans un délai raisonnable, en parfait état.\nIls sont magnifiques, je suis vraiment très contente.\nVive l'artisanat marocain\nJe vous remercie",
+        "relativeDate": "il y a 2 ans"
+      }
+    ],
+    "id": "local-1790515950010-xmp07",
+    "created_at": "2026-09-27T13:32:30.010Z",
+    "updated_at": "2026-09-27T13:32:30.010Z"
+  },
+  {
+    "name": "grossiste artisanat Marocain",
+    "category": "Artisan",
+    "city": "Marrakech",
+    "country": "Maroc",
+    "google_place_id": "ChIJD0kvLhHprw0RZw7itIqt5Oo",
+    "rating": 4.8,
+    "review_count": 23,
+    "phone": "+212 7 71 24 28 47",
+    "address": "N°, Souk Gassaba, 2 Rte d'Essaouira, Marrakesh 40150, Maroc",
+    "google_maps_url": "https://maps.google.com/?cid=16925844110816972391&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "status": "scouted",
+    "top_reviews": [
+      {
+        "author": "Helen E",
+        "rating": 5,
+        "text": "Très satisfaite de ma première commande ! Les produits sont magnifiques, l'échange a été simple et efficace, livraison bien réalisée. Je recommande, personne de confiance.",
+        "relativeDate": "il y a un an"
+      },
+      {
+        "author": "Marine",
+        "rating": 5,
+        "text": "Très contente de notre collaboration, articles conforme, du choix & délai de livraison ok 👌 Très bonne communication",
+        "relativeDate": "il y a 12 mois"
+      },
+      {
+        "author": "Laetitia Dupont",
+        "rating": 5,
+        "text": "Très bien du début de la prise de commandes, jusqu’à la livraison… des articles de très bonne qualité à des prix correct. Merci loubna",
+        "relativeDate": "il y a 2 ans"
+      },
+      {
+        "author": "Laïla Tti",
+        "rating": 5,
+        "text": "Superbe contact très professionnelle, à l'écoute, patiente et très gentille.\nMarchandise livrée très rapidement.\nBref j'ai trouvé un contact de qualité que je conseille à tous.\nMerci Loubna 😊😊😊",
+        "relativeDate": "il y a 5 ans"
+      }
+    ],
+    "id": "local-1790515950010-1vqmo",
+    "created_at": "2026-09-27T13:32:30.010Z",
+    "updated_at": "2026-09-27T13:32:30.010Z"
+  },
+  {
+    "name": "Artisanal Marrakech",
+    "category": "Artisan",
+    "city": "Marrakech",
+    "country": "Maroc",
+    "google_place_id": "ChIJxWQM7Vvlrw0RRlJgqCwYsGI",
+    "rating": 4.9,
+    "review_count": 15,
+    "phone": "+212 6 62 62 51 46",
+    "address": "km 7 route d'ourika, Marrakech, Maroc",
+    "google_maps_url": "https://maps.google.com/?cid=7111210391700525638&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "status": "scouted",
+    "top_reviews": [
+      {
+        "author": "HB",
+        "rating": 5,
+        "text": "Belle découverte sur la route de l’Ourika, juste après le café restaurant Bladna.\nVente d'excellents produits artisanal.\nVous pouvez effectuer des commandes, les délais sont respectés.\nVendeur a l’écoute, qui a su nous conseiller.\nTrès belle boutique, je recommande.",
+        "relativeDate": "il y a 10 mois"
+      },
+      {
+        "author": "Abdelaziz Abdel",
+        "rating": 5,
+        "text": "Ventes d'excellents produits de tres bonne qualité, n'hésitez pas à y faire un tour, vous y trouverez votre bonheur. Ça mérite largement un 5 étoiles ⭐⭐⭐⭐⭐",
+        "relativeDate": "il y a 5 ans"
+      },
+      {
+        "author": "Hassoni Abdr",
+        "rating": 5,
+        "text": "Une bonne Local commercial pour tout les articles artisanal",
+        "relativeDate": "il y a 5 ans"
+      },
+      {
+        "author": "chlaih ibrahim",
+        "rating": 5,
+        "text": "Bonne service 👍🏻avec bonne qualité 🥰",
+        "relativeDate": "il y a 3 ans"
+      }
+    ],
+    "id": "local-1790515950010-nsec2",
+    "created_at": "2026-09-27T13:32:30.010Z",
+    "updated_at": "2026-09-27T13:32:30.010Z"
+  },
+  {
+    "name": "Latifshop Moroccan Artisanat & déco",
+    "category": "Artisan",
+    "city": "Marrakech",
+    "country": "Maroc",
+    "google_place_id": "ChIJMeIbEx3vrw0RTqZxytKuMYA",
+    "rating": 5,
+    "review_count": 16,
+    "phone": "",
+    "address": "Jamaa el fenna souk jedid N°97 Marrakech, Marrakech 40000, Maroc",
+    "google_maps_url": "https://maps.google.com/?cid=9237356531076408910&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "status": "scouted",
+    "top_reviews": [
+      {
+        "author": "Salim TC",
+        "rating": 5,
+        "text": "Le Shop de Mr Latif, au Top !!\nTrès sympa, Prix Fixe, 10/10",
+        "relativeDate": "il y a 2 ans"
+      },
+      {
+        "author": "Houda EL BASRI",
+        "rating": 5,
+        "text": "Excellent shop\nJe recommande",
+        "relativeDate": "il y a 2 ans"
+      },
+      {
+        "author": "Abdellah BELOUALI",
+        "rating": 5,
+        "text": "Il est aimable, serviable et très généreux, et ses articles sont de qualité. Je le recommande.",
+        "relativeDate": "il y a 2 ans"
+      },
+      {
+        "author": "Sabin Saji",
+        "rating": 5,
+        "text": "L'expérience d'achat est formidable. Il vous guidera dans le magasin et vous proposera des prix très avantageux. Il est très sympathique et de bon conseil pour choisir des cadeaux pour vos proches. À visiter absolument !",
+        "relativeDate": "il y a 2 ans"
+      }
+    ],
+    "id": "local-1790515950010-q8oyw",
+    "created_at": "2026-09-27T13:32:30.010Z",
+    "updated_at": "2026-09-27T13:32:30.010Z"
+  },
+  {
+    "name": "Heritage Trading",
+    "category": "Commerce",
+    "city": "Marrakech",
+    "country": "Maroc",
+    "google_place_id": "ChIJr4V9UwXvrw0Ri2QVpaZgzzs",
+    "rating": 4.8,
+    "review_count": 17,
+    "phone": "+212 6 54 58 76 60",
+    "address": "Arsat Maach, 91 Avenue Hommane Fetouaki, Marrakech 40000, Maroc",
+    "google_maps_url": "https://maps.google.com/?cid=4309769637267334283&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "status": "scouted",
+    "top_reviews": [
+      {
+        "author": "Majda zoubid",
+        "rating": 5,
+        "text": "Deux très magnifiques magasins, proposant des souvenirs et du prêt à porter traditionnelle",
+        "relativeDate": "il y a 3 ans"
+      },
+      {
+        "author": "SALAH CHAATAOUI",
+        "rating": 1,
+        "text": "Grosse arnaque",
+        "relativeDate": "il y a 3 ans"
+      },
+      {
+        "author": "Abdi",
+        "rating": 5,
+        "text": "Le meilleur spectacle de Marrakech ! Si vous recherchez des expériences traditionnelles, c'est l'endroit incontournable ! ❤️",
+        "relativeDate": "il y a 3 ans"
+      },
+      {
+        "author": "Cyrus Renfrew",
+        "rating": 5,
+        "text": "Heritage Trading proposait des articles parmi les meilleurs que nous ayons vus. La vendeuse était non seulement très serviable, mais elle nous a aussi donné de précieux conseils sur les produits à acheter chez d'autres vendeurs et sur les meilleurs endroits où chercher.",
+        "relativeDate": "il y a 2 ans"
+      }
+    ],
+    "id": "local-1790515950010-67s8y",
+    "created_at": "2026-09-27T13:32:30.010Z",
+    "updated_at": "2026-09-27T13:32:30.010Z"
+  },
+  {
+    "name": "Ccafé",
+    "category": "Café",
+    "city": "Marrakech",
+    "country": "Maroc",
+    "google_place_id": "ChIJEdbVTRLvrw0RbNCEst4k4-A",
+    "rating": 4.9,
+    "review_count": 28,
+    "phone": "+212 6 61 33 42 41",
+    "address": "n°4, Rue abdelouahed eddarq, Marrakech 40000, Maroc",
+    "google_maps_url": "https://maps.google.com/?cid=16204836423105564780&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "status": "scouted",
+    "top_reviews": [
+      {
+        "author": "ALAA BENCHEKROUN",
+        "rating": 5,
+        "text": "Un endroit créé uniquement pour les vrais amateurs du café, sans oublier la qualité de service et la fraîcheur des cocktails proposés durant l’été",
+        "relativeDate": "il y a un mois"
+      },
+      {
+        "author": "Youness Chahboun",
+        "rating": 5,
+        "text": "Meilleur qualité et le mec et très sympa",
+        "relativeDate": "il y a un mois"
+      },
+      {
+        "author": "Moughit Mouhalil",
+        "rating": 5,
+        "text": "🥇🥇",
+        "relativeDate": "il y a 2 mois"
+      },
+      {
+        "author": "Bad Boy",
+        "rating": 5,
+        "text": "Bon service bon café qualité top du top 👌❤️",
+        "relativeDate": "il y a moins d'une semaine"
+      }
+    ],
+    "id": "local-1790515950010-fgni9",
+    "created_at": "2026-09-27T13:32:30.010Z",
+    "updated_at": "2026-09-27T13:32:30.010Z"
+  },
+  {
+    "name": "Hyuna House Cafe",
+    "category": "Café",
+    "city": "Marrakech",
+    "country": "Maroc",
+    "google_place_id": "ChIJXxDtBwDvrw0RGrFqPx1G-t0",
+    "rating": 4.7,
+    "review_count": 685,
+    "phone": "",
+    "address": "hyuna house cafe, 24 Rte Sidi Abdelaziz, Marrakech 40000, Maroc",
+    "google_maps_url": "https://maps.google.com/?cid=15995174117991690522&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "status": "scouted",
+    "top_reviews": [
+      {
+        "author": "Majda LK",
+        "rating": 5,
+        "text": "Très belle découverte à Marrakech 🇰🇷☕️ Un adorable café coréen avec une ambiance calme et cosy, parfait pour une pause détente.\n\nJ’ai testé le matcha latte au lait d’avoine et il était vraiment délicieux : bien équilibré, savoureux et pas trop sucré.\nJ’ai aussi pris le black sesame latte. La boisson est assez peu sucrée et on sent bien le goût du sésame noir, ce qui peut beaucoup plaire aux amateurs de saveurs authentiques. En revanche, les plus gourmands trouveront peut-être qu’il manque un peu de douceur ou de gourmandise.\n\nJ’ai également goûté le cookie aux pépites de chocolat : gourmand, plutôt croustillant que moelleux, et franchement bon ! Même si j’en ai déjà mangé des meilleurs, il accompagnait parfaitement les boissons 🍪\n\nLe rooftop était sympa !",
+        "relativeDate": "il y a 4 mois"
+      },
+      {
+        "author": "Saida B",
+        "rating": 3,
+        "text": "Le cappuccino est bon, tout comme le carrot cake, les serveuses sont sympathiques et mignonnes, et l'endroit est également agréable. Cependant, payer 85dh (8,5€) pour un gâteau aux carottes et un cappuccino au Maroc est vraiment exagéré, même pas en Europe. C’est dommage!",
+        "relativeDate": "il y a 7 mois"
+      },
+      {
+        "author": "Mallo Chsn",
+        "rating": 4,
+        "text": "Café minimaliste, je m’y suis arrêtée afin de faire un petit break dans la médina et boire un matcha. Serveur souriant et agréable, ils ont des laits végétaux disponibles. Concernant le matcha, il était très bon (peut-être un peu petit en contenance au vu du prix).",
+        "relativeDate": "il y a 4 mois"
+      },
+      {
+        "author": "alicia taniere",
+        "rating": 4,
+        "text": "Lieu très cosy avec terrasse au soleil sur le toit. Cookies excellents !\nMais prix trop élevés et avocado toast un peu décevant (avocat pas mûr et aucun assaisonnement).",
+        "relativeDate": "il y a 6 mois"
+      }
+    ],
+    "id": "local-1790515950010-2iubu",
+    "created_at": "2026-09-27T13:32:30.010Z",
+    "updated_at": "2026-09-27T13:32:30.010Z"
+  },
+  {
+    "name": "Magic Coffee",
+    "category": "Café",
+    "city": "Marrakech",
+    "country": "Maroc",
+    "google_place_id": "ChIJXWQ5Lb7vrw0RO2A1xfNV2_M",
+    "rating": 4.8,
+    "review_count": 254,
+    "phone": "+212 6 27 87 70 11",
+    "address": "22 Rte Sidi Abdelaziz, Marrakech 40000, Maroc",
+    "google_maps_url": "https://maps.google.com/?cid=17571732876590145595&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "status": "scouted",
+    "top_reviews": [
+      {
+        "author": "Amandine D",
+        "rating": 5,
+        "text": "Super découverte !!\nOn a adoré y aller, il était à quelque pas de notre Riad.\nLes filles sont super gentille, on est très bien servi et c’est vraiment bon.",
+        "relativeDate": "il y a 3 mois"
+      },
+      {
+        "author": "Wiam Ait Ahmed",
+        "rating": 5,
+        "text": "Excellent restaurant marocain avec une ambiance chaleureuse et un accueil très sympathique. Le service est impeccable et la qualité des plats est au rendez-vous. Un endroit agréable que je recommande sans hésitation !✨",
+        "relativeDate": "il y a 4 mois"
+      },
+      {
+        "author": "sas ohmega",
+        "rating": 5,
+        "text": "Lors de notre passage à Marrakech, très bonne adresse découverte par hasard.\nAccueil très agréable par la chef. Nous avons pris des Pipusas poulet et viande hachée, vraiment excellents et plaisir de voir la chef cuisiner devant nous. Merci à vous pour ce moment , nous recommandons vivement !",
+        "relativeDate": "il y a 2 ans"
+      },
+      {
+        "author": "thaibao thoi",
+        "rating": 5,
+        "text": "Merci à mariam pour son hospitalité et sa bienveillance. Tous les plats sont fait maison et délicieux. Vous pouvez y aller les yeux fermés.",
+        "relativeDate": "il y a 3 ans"
+      }
+    ],
+    "id": "local-1790515950010-4wflr",
+    "created_at": "2026-09-27T13:32:30.010Z",
+    "updated_at": "2026-09-27T13:32:30.010Z"
+  },
+  {
+    "name": "Kesh cup Marrakech",
+    "category": "Commerce",
+    "city": "Marrakech",
+    "country": "Maroc",
+    "google_place_id": "ChIJz6N82MXvrw0RApfVJYctZNc",
+    "rating": 4.9,
+    "review_count": 482,
+    "phone": "+212 6 61 53 70 56",
+    "address": "29 طريق سيدي عبد العزيز، Marrakech 40000, Maroc",
+    "google_maps_url": "https://maps.google.com/?cid=15520580274304161538&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "status": "scouted",
+    "top_reviews": [
+      {
+        "author": "Saida B",
+        "rating": 5,
+        "text": "Un de meilleur cappuccino que j’ai testé à Marrakech. Lieu petit mais trop cosy, service trop sympa🥰 Je valide",
+        "relativeDate": "il y a 7 mois"
+      },
+      {
+        "author": "Virgile Caillens",
+        "rating": 5,
+        "text": "J’y suis allé une fois. J’ai commencé par un cortano lait d’amande et sirop de pistache. C’était tellement délicieux que j’ai commandé un flat White dans la foulée.\nJe ne peux que recommander\nL’ambiance y est très sympa et le barista aussi",
+        "relativeDate": "il y a un an"
+      },
+      {
+        "author": "Marc-Olivier Defoy",
+        "rating": 5,
+        "text": "Le meilleur café de la médina! Café italien type thirdwave. Nous avons pris 2 cortados avec 2 biscuits. Les cafés et très bien réussi rapport café quantité de lait . Plusieurs options lait avoine , Soya , vache . Le proprio vous sert avec un beau sourire . 3 places  disponible . Si vous êtes chanceux vous assis devant la belle fenêtre à carreaux . On y retourne ? Oui tous les jours",
+        "relativeDate": "il y a 7 mois"
+      },
+      {
+        "author": "Charline Borteyrou",
+        "rating": 5,
+        "text": "J’ADORE ce café j’y allais tous les jours, le gérant est trop trop sympa. Et les prix sont très raisonnables. Cookies très bon.",
+        "relativeDate": "il y a un an"
+      }
+    ],
+    "id": "local-1790515950010-6dc1n",
+    "created_at": "2026-09-27T13:32:30.010Z",
+    "updated_at": "2026-09-27T13:32:30.010Z"
+  },
+  {
+    "name": "Café medina",
+    "category": "Café",
+    "city": "Marrakech",
+    "country": "Maroc",
+    "google_place_id": "ChIJebne9qnvrw0Rpyvv8LX54yI",
+    "rating": 4.9,
+    "review_count": 106,
+    "phone": "+212 6 11 05 48 79",
+    "address": "J2H8+CJW, 28 Taoulat Ben Saleh, Marrakesh 40000, Maroc",
+    "google_maps_url": "https://maps.google.com/?cid=2514127576829471655&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "status": "scouted",
+    "top_reviews": [
+      {
+        "author": "Greg Malpas",
+        "rating": 5,
+        "text": "le petit café de quartier sympa. Khalid est au top de la sympathie, les cafés du classique au plus élaboré sont préparés professionnellement et avec savoir faire. A recommander",
+        "relativeDate": "il y a 3 mois"
+      },
+      {
+        "author": "Magali Nom",
+        "rating": 5,
+        "text": "Je n'ai pas consommé au café mais j'ai fait des achats dans sa jolie boutique juste en face. Dommage qu'elle ne soit pas référencée. Très bon choix de déco, bien présentée. Le vendeur sympathique ne nous a pas poussé à l'achat et nous a fait un très bon prix pour un lot de verres beldi avec un petit cadeau en plus 😊. Je recommande ce petit magasin. Au top !",
+        "relativeDate": "il y a 2 ans"
+      },
+      {
+        "author": "Doudou Labrot",
+        "rating": 5,
+        "text": "Super petit café de rue. Très sympathique et très bon !",
+        "relativeDate": "il y a 2 ans"
+      },
+      {
+        "author": "olivier",
+        "rating": 5,
+        "text": "Très bon café, Excellent rapport qualité prix avec un bon service.",
+        "relativeDate": "il y a un an"
+      }
+    ],
+    "id": "local-1790515950010-2l160",
+    "created_at": "2026-09-27T13:32:30.010Z",
+    "updated_at": "2026-09-27T13:32:30.010Z"
   }
 ]
