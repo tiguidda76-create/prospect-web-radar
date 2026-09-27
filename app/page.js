@@ -1021,9 +1021,13 @@ export default function ProspectRadarDashboard() {
                 overflowY: "auto",
                 marginBottom: 20,
               }}
-            >
-              {pitchProspect.pitch_message ||
-                `Bonjour l'équipe de *${pitchProspect.name}* 👋\n\nFélicitations pour votre excellente note de *${pitchProspect.rating}⭐* sur Google Maps (${pitchProspect.review_count} avis vérifiés) !\n\nEn découvrant votre établissement à ${pitchProspect.city}, nous avons remarqué que vous n'avez pas de site internet officiel. De nombreux clients hésitent ou ne trouvent pas votre numéro.\n\nPour vous aider, nous avons préparé *gratuitement* un aperçu interactif de votre futur site web officiel :\n👉 ${pitchProspect.preview_url ? (pitchProspect.preview_url.startsWith("http") ? pitchProspect.preview_url : window.location.origin + pitchProspect.preview_url) : "https://votre-site-demo.com"}\n\nVos avis Google et vos coordonnées y sont déjà intégrés avec un bouton direct WhatsApp.\n\nDites-nous ce que vous en pensez !`}
+              {(() => {
+                const publicBase = "https://radar-vitrines.vercel.app";
+                let text = pitchProspect.pitch_message || `Bonjour l'équipe de *${pitchProspect.name}* 👋\n\nFélicitations pour votre note remarquable de *${pitchProspect.rating}⭐* sur Google Maps (${pitchProspect.review_count} avis clients vérifiés) !\n\nEn consultant votre fiche à ${pitchProspect.city}, nous avons remarqué que vous n'avez pas encore de site officiel.\n\nNous vous avons préparé un aperçu interactif de votre futur site officiel :\n👉 ${publicBase}/v/${pitchProspect.site_slug || pitchProspect.id}\n\nVos avis Google et votre bouton WhatsApp y sont déjà intégrés. Dites-nous ce que vous en pensez !\nBien cordialement,\nL'équipe Radar Vitrine`;
+                
+                // Remplacement strict de localhost si présent
+                return text.replace(/http:\/\/localhost:[0-9]+/g, publicBase);
+              })()}
             </div>
 
             {/* Boutons d'Action */}
